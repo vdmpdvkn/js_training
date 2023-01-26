@@ -12,3 +12,30 @@ const user = {
   haveCar: true,
   married: false,
 };
+
+
+const user = {
+  name: "John",
+  surName: "Stones",
+  age: 20,
+  hobby: "tennis",
+  haveCar: true,
+  married: false,
+};
+
+// function arrayFromObject(obj) {
+//   return Object.entries(obj);
+//   }
+  
+//   console.log(arrayFromObject(user));
+  
+  //or
+  
+  function arrayFromObject(obj) {
+  const result = [];
+  for (const key in obj) {
+  result.push([key, obj[key]]);
+  }
+  return result;
+  }
+  console.log(arrayFromObject(user));
