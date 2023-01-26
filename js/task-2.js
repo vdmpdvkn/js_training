@@ -11,3 +11,16 @@ const salaries = {
   Poly: 160,
   Ajax: 1470,
 };
+
+function culcSalar()
+{
+  let sum = 0;
+  let salaryUser = Object.values(salaries);
+
+  for (const value of salaryUser){
+    // console.log(value)
+    sum = sum + value;
+  }
+  console.log(sum)
+}
+culcSalar()
