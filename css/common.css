@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
+ul {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  gap: 5px;
+}
