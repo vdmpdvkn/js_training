@@ -76,33 +76,79 @@ console.log("hello");
 // note1.updatePriority({ text: "Note2", newPriority: Notes.Priority().HIGHT });
 // console.table(note1.items);
 
-class Notes {
-  static Priority() {
-    return {
-      LOW: "low",
-      HIGHT: "hight",
-    };
+// class Notes {
+//   static Priority() {
+//     return {
+//       LOW: "low",
+//       HIGHT: "hight",
+//     };
+//   }
+//   constructor() {
+//     this.items = [];
+//   }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+//   removeNote(text) {
+//     const indexElem = this.items.findIndex((element) => element.text === text);
+//     this.items.splice(indexElem, 1);
+//   }
+//   updatePriority(text, newPriority) {
+//     const indexElem = this.items.findIndex((element) => element.text === text);
+//     this.items[indexElem].priority = newPriority;
+//   };
+// }
+
+// const note1 = new Notes();
+// note1.addNote({ text: "Note1", priority: Notes.Priority().LOW });
+// note1.addNote({ text: "Note2", priority: Notes.Priority().LOW });
+// note1.addNote({ text: "Note3", priority: Notes.Priority().LOW });
+// note1.removeNote('Note2');
+// note1.updatePriority("Note1", Notes.Priority().HIGHT);
+// console.log(note1);
+
+//TODO:=============================================
+// Створити клас Worker, у якого є властивості name, age, salary.
+//У класу Worker є метод getSalary.
+//Створити клас TopLevelWorker, у якого є властивість hierarchyLevel
+//і який успадковує клас Worker, додаючи метод getHierarchyLevel
+
+const HIERARCHY_LEVEL = {
+  TOP: "top",
+  BOTTOM: "bottom",
+};
+
+const workerObj = {
+  name: "Mango",
+  surname: "Worker",
+  age: 30,
+  position: "FE developer",
+  salary: 5000,
+};
+
+class Worker {
+  constructor(obj) {
+    const { name, age, salary } = obj;
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
   }
-  constructor() {
-    this.items = [];
+
+  getSalary() {
+    return this.salary;
   }
-  addNote(note) {
-    this.items.push(note);
-  }
-  removeNote(text) {
-    const indexElem = this.items.findIndex((element) => element.text === text);
-    this.items.splice(indexElem, 1);
-  }
-  updatePriority(text, newPriority) {
-    const indexElem = this.items.findIndex((element) => element.text === text);
-    this.items[indexElem].priority = newPriority;
-  };
 }
 
-const note1 = new Notes();
-note1.addNote({ text: "Note1", priority: Notes.Priority().LOW });
-note1.addNote({ text: "Note2", priority: Notes.Priority().LOW });
-note1.addNote({ text: "Note3", priority: Notes.Priority().LOW });
-note1.removeNote('Note2');
-note1.updatePriority("Note1", Notes.Priority().HIGHT);
-console.log(note1);
+class TopLevelWorker extends Worker {
+  constructor(hierarchyLevel, obj) {
+    super(obj);
+    this.hierarchyLevel = hierarchyLevel;
+  }
+
+  getHierarchyLevel() {
+    return this.hierarchyLevel;
+  }
+}
+
+const newWorker = new TopLevelWorker(HIERARCHY_LEVEL.TOP, workerObj);
+console.dir(newWorker);
