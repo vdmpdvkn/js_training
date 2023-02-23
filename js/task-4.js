@@ -14,16 +14,14 @@ const calculator = {
   },
   sum() {
     if (this.a > 0 && this.b > 0) {
-    return this.a + this.b
-} else return `enter correct number`
+      return this.a + this.b;
+    } else return `enter correct number`;
   },
   mult() {
-    return this.a*this.b
+    return this.a * this.b;
   },
 };
 
-calculator.read(3,3);
+calculator.read(3, 3);
 console.log(calculator.sum());
 console.log(calculator.mult());
-
-
